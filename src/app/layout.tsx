@@ -9,7 +9,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://bozioportfolio.vercel.app'),
+  metadataBase: new URL('https://bozioportfolio-teamkiwi.vercel.app'),
   title: 'Matheus Henrique Bozio — Senior Product Designer',
   description:
     'Senior Product Designer working across discovery, UX/UI, research and strategy — B2B SaaS, fintech, insurtech and complex digital products.',
