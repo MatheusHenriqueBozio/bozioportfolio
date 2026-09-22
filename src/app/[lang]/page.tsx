@@ -47,8 +47,8 @@ export default async function Home({ params }: { params: Promise<{ lang: Lang }>
                 <img
                   src={profile.photo}
                   alt={profile.name}
-                  width={820}
-                  height={1024}
+                  width={950}
+                  height={1187}
                   className="h-full w-full object-cover"
                 />
               </div>
