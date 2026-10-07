@@ -31,7 +31,7 @@ export const projects: Project[] = [
     slug: 'mell-ro',
     title: 'Mell.ro',
     card: {
-      thumb: '/images/thumb-mellro.webp',
+      thumb: '/images/thumb-mellro-2.webp',
       tags: { pt: ['Proptech', 'B2B', 'Web app'], en: ['Proptech', 'B2B', 'Web app'] },
       blurb: {
         pt: 'Plataforma de locação com aluguel garantido. Redesenhei a gestão de imóveis, o anúncio, a análise de inquilinos e o acompanhamento de cada resultado.',
@@ -62,8 +62,19 @@ export const projects: Project[] = [
         en: 'I designed every screen of the Properties and Tenants journeys, on desktop and mobile: lists, panels, the analysis form, listing, modals and states. And I specified the behaviour and rules of each component in the file itself for the development team.',
       },
     },
-    cover: { src: '/images/mellro-01.webp', w: 1400, h: 848 },
+    cover: { src: '/images/mellro-cover.webp', w: 1400, h: 1160 },
     blocks: [
+      {
+        type: 'embed',
+        src: 'https://mellro-case.vercel.app/',
+        ratio: 1400 / 900,
+        title: { pt: 'Protótipo navegável', en: 'Live prototype' },
+        body: {
+          pt: 'Antes da apresentação, explore o produto: seis fluxos clicáveis, com índice para ir direto a cada um, usando as telas originais do projeto.',
+          en: 'Before the walkthrough, explore the product: six clickable flows, with an index to jump straight to each one, using the original screens of the project.',
+        },
+        open: { pt: 'Abrir o protótipo em tela cheia ↗', en: 'Open the prototype full screen ↗' },
+      },
       {
         type: 'text',
         label: { pt: 'Contexto', en: 'Context' },
@@ -72,22 +83,18 @@ export const projects: Project[] = [
           en: 'Four stories, in the order a rental happens: listing a property, following the interested people, analysing a group of tenants and taking the result through to the contract.',
         },
       },
-      slide('02', 1040),
-      slide('03', 1080),
-      slide('04', 988),
+      slide('04v2', 957),
       slide('05', 1793),
 
       {
         type: 'text',
         label: { pt: 'Anunciar um imóvel', en: 'Listing a property' },
         body: {
-          pt: 'Anunciar envolve duas decisões com regra por trás: quais fotos entram e o que entra no valor garantido. Cada arquivo é validado sozinho, e IPTU e condomínio viraram uma pergunta de sim ou não antes de qualquer número.',
-          en: 'Listing involves two decisions with a rule behind them: which photos get in and what goes into the guaranteed amount. Each file is validated on its own, and property tax and condo fees became a yes-or-no question before any number.',
+          pt: 'Do upload à galeria, cada foto é validada sozinha, e o mesmo anúncio foi desenhado também para o celular.',
+          en: 'From upload to gallery, each photo is validated on its own, and the same listing was also designed for mobile.',
         },
       },
-      slide('06', 1081),
       slide('07', 1568),
-      slide('08', 1737),
       slide('09', 1480),
 
       {
@@ -98,7 +105,6 @@ export const projects: Project[] = [
           en: 'Leads for a property reached the broker only by email. I designed the list as a portfolio, with the listing status separate from the rental status, and each property panel as a list of interested people.',
         },
       },
-      slide('10', 1081),
       slide('11', 2152),
       slide('12', 2279),
       slide('13', 1481),
@@ -111,7 +117,6 @@ export const projects: Project[] = [
           en: 'One analysis can have several tenants, with income added together, and some of them are already in the database with data the broker cannot change. The form became a set of blocks, one per tenant, each with its own state.',
         },
       },
-      slide('14', 1081),
       slide('15', 1592),
       slide('16', 1614),
       slide('17', 1744),
@@ -124,7 +129,6 @@ export const projects: Project[] = [
           en: 'After the analysis, each group falls into one of four statuses. The tenant panel is a single structure in which three things change: the suggestion, the main button and the actions menu. Anything that is only a lookup never changes the status.',
         },
       },
-      slide('18', 1081),
       slide('19', 2300),
       slide('20', 1597),
       slide('21', 1534),
@@ -138,22 +142,10 @@ export const projects: Project[] = [
           en: 'I documented behaviour and rules alongside each component, in the file itself. Menus, tags and filters were defined once and serve both Properties and Tenants, on desktop and mobile.',
         },
       },
-      slide('23', 2098),
       slide('24', 1510),
       slide('25', 1303),
       slide('28', 1991),
 
-      {
-        type: 'embed',
-        src: 'https://mellro-case.vercel.app/',
-        ratio: 1400 / 900,
-        title: { pt: 'Protótipo navegável', en: 'Live prototype' },
-        body: {
-          pt: 'Seis fluxos clicáveis, com índice para ir direto a cada um, usando as telas originais do projeto.',
-          en: 'Six clickable flows, with an index to jump straight to each one, using the original screens of the project.',
-        },
-        open: { pt: 'Abrir o protótipo em tela cheia ↗', en: 'Open the prototype full screen ↗' },
-      },
     ],
     links: {
       behance: {
