@@ -5,7 +5,8 @@ type L = Record<Lang, string>;
 export type Block =
   | { type: 'image'; src: string; w: number; h: number }
   | { type: 'pair'; a: string; b: string; ratio: number }
-  | { type: 'text'; label: L; body: L };
+  | { type: 'text'; label: L; body: L }
+  | { type: 'embed'; src: string; title: L; body: L; ratio: number; open: L };
 
 export type Project = {
   slug: string;
@@ -22,8 +23,147 @@ export type Project = {
 
 const img = (src: string, w: number, h: number): Block => ({ type: 'image', src, w, h });
 const pair = (a: string, b: string, ratio: number): Block => ({ type: 'pair', a, b, ratio });
+const slide = (n: string, h: number): Block => img(`/images/mellro-${n}.webp`, 1400, h);
 
 export const projects: Project[] = [
+  /* ---------------------------------------------------------------- 00 */
+  {
+    slug: 'mell-ro',
+    title: 'Mell.ro',
+    card: {
+      thumb: '/images/thumb-mellro.webp',
+      tags: { pt: ['Proptech', 'B2B', 'Web app'], en: ['Proptech', 'B2B', 'Web app'] },
+      blurb: {
+        pt: 'Plataforma de locação com aluguel garantido. Redesenhei a gestão de imóveis, o anúncio, a análise de inquilinos e o acompanhamento de cada resultado.',
+        en: 'A rental platform with guaranteed rent. I redesigned property management, listing, tenant analysis and the follow-up of every outcome.',
+      },
+    },
+    subtitle: {
+      pt: 'Imóveis e inquilinos em uma jornada só: a parte da plataforma que o corretor usa todo dia, no desktop e no celular.',
+      en: 'Properties and tenants in a single journey: the part of the platform that brokers use every day, on desktop and mobile.',
+    },
+    meta: {
+      role: { pt: 'Product Designer: telas e especificação de comportamento', en: 'Product Designer: screens and behaviour specification' },
+      scope: { pt: 'Fluxos, telas, regras de comportamento, handoff', en: 'Flows, screens, behaviour rules, handoff' },
+      industry: { pt: 'Proptech', en: 'Proptech' },
+      platform: { pt: 'Web app responsivo, desktop e mobile', en: 'Responsive web app, desktop and mobile' },
+    },
+    story: {
+      about: {
+        pt: 'A Mell.ro é uma plataforma de locação com aluguel garantido: o proprietário recebe mesmo quando o inquilino atrasa. Para isso, a plataforma publica o imóvel em portais, analisa quem vai alugar, gera o contrato e cobre inadimplência e danos. O case cobre as quatro primeiras etapas, do lado de quem oferece o imóvel.',
+        en: 'Mell.ro is a rental platform with guaranteed rent: the owner gets paid even when the tenant is late. To make that work, the platform lists the property on portals, analyses who will rent it, generates the contract and covers default and damages. This case covers the first four stages, from the side of whoever offers the property.',
+      },
+      problem: {
+        pt: 'Uma locação tem muitas partes móveis. Dois planos de garantia parecidos confundiam, os interessados chegavam ao corretor só por e-mail, uma análise pode ter vários inquilinos com a renda somada, e cada resultado pede uma ação diferente sem que consultar mude o status.',
+        en: 'A rental has many moving parts. Two similar guarantee plans caused confusion, interested people reached the broker only by email, one analysis can have several tenants with combined income, and each result calls for a different action without a simple lookup changing the status.',
+      },
+      solution: {
+        pt: 'Desenhei todas as telas das jornadas de Imóveis e Inquilinos, em desktop e mobile: listagens, painéis, formulário de análise, anúncio, modais e estados. E especifiquei no próprio arquivo o comportamento e as regras de cada componente para o time de desenvolvimento.',
+        en: 'I designed every screen of the Properties and Tenants journeys, on desktop and mobile: lists, panels, the analysis form, listing, modals and states. And I specified the behaviour and rules of each component in the file itself for the development team.',
+      },
+    },
+    cover: { src: '/images/mellro-01.webp', w: 1400, h: 848 },
+    blocks: [
+      {
+        type: 'text',
+        label: { pt: 'Contexto', en: 'Context' },
+        body: {
+          pt: 'Quatro histórias, na ordem em que a locação acontece: anunciar um imóvel, acompanhar os interessados, analisar um grupo de inquilinos e levar o resultado até o contrato.',
+          en: 'Four stories, in the order a rental happens: listing a property, following the interested people, analysing a group of tenants and taking the result through to the contract.',
+        },
+      },
+      slide('02', 1040),
+      slide('03', 1080),
+      slide('04', 988),
+      slide('05', 1793),
+
+      {
+        type: 'text',
+        label: { pt: 'Anunciar um imóvel', en: 'Listing a property' },
+        body: {
+          pt: 'Anunciar envolve duas decisões com regra por trás: quais fotos entram e o que entra no valor garantido. Cada arquivo é validado sozinho, e IPTU e condomínio viraram uma pergunta de sim ou não antes de qualquer número.',
+          en: 'Listing involves two decisions with a rule behind them: which photos get in and what goes into the guaranteed amount. Each file is validated on its own, and property tax and condo fees became a yes-or-no question before any number.',
+        },
+      },
+      slide('06', 1081),
+      slide('07', 1568),
+      slide('08', 1737),
+      slide('09', 1480),
+
+      {
+        type: 'text',
+        label: { pt: 'Imóveis e interessados', en: 'Properties and interested people' },
+        body: {
+          pt: 'Os leads de um imóvel chegavam ao corretor só por e-mail. Desenhei a listagem como uma carteira, com o status do anúncio separado do status da locação, e o painel de cada imóvel como uma lista de interessados.',
+          en: 'Leads for a property reached the broker only by email. I designed the list as a portfolio, with the listing status separate from the rental status, and each property panel as a list of interested people.',
+        },
+      },
+      slide('10', 1081),
+      slide('11', 2152),
+      slide('12', 2279),
+      slide('13', 1481),
+
+      {
+        type: 'text',
+        label: { pt: 'Analisar um grupo', en: 'Analysing a group' },
+        body: {
+          pt: 'Uma análise pode ter vários inquilinos, com a renda somada, e parte deles já está na base com dados que o corretor não pode alterar. O formulário virou um conjunto de blocos, um por inquilino, cada um com o próprio estado.',
+          en: 'One analysis can have several tenants, with income added together, and some of them are already in the database with data the broker cannot change. The form became a set of blocks, one per tenant, each with its own state.',
+        },
+      },
+      slide('14', 1081),
+      slide('15', 1592),
+      slide('16', 1614),
+      slide('17', 1744),
+
+      {
+        type: 'text',
+        label: { pt: 'Do status ao contrato', en: 'From status to contract' },
+        body: {
+          pt: 'Depois da análise, cada grupo cai em um de quatro status. O painel do inquilino é uma estrutura só, em que mudam três coisas: a sugestão, o botão principal e o menu de ações. O que é só consulta nunca muda o status.',
+          en: 'After the analysis, each group falls into one of four statuses. The tenant panel is a single structure in which three things change: the suggestion, the main button and the actions menu. Anything that is only a lookup never changes the status.',
+        },
+      },
+      slide('18', 1081),
+      slide('19', 2300),
+      slide('20', 1597),
+      slide('21', 1534),
+      slide('22', 1744),
+
+      {
+        type: 'text',
+        label: { pt: 'Decisões de design', en: 'Design decisions' },
+        body: {
+          pt: 'Documentei comportamento e regra junto de cada componente, no próprio arquivo. Menus, tags e filtros foram definidos uma vez e servem a Imóveis e a Inquilinos, no desktop e no celular.',
+          en: 'I documented behaviour and rules alongside each component, in the file itself. Menus, tags and filters were defined once and serve both Properties and Tenants, on desktop and mobile.',
+        },
+      },
+      slide('23', 2098),
+      slide('24', 1510),
+      slide('25', 1303),
+      slide('28', 1991),
+
+      {
+        type: 'embed',
+        src: 'https://mellro-case.vercel.app/',
+        ratio: 1400 / 900,
+        title: { pt: 'Protótipo navegável', en: 'Live prototype' },
+        body: {
+          pt: 'Seis fluxos clicáveis, com índice para ir direto a cada um, usando as telas originais do projeto.',
+          en: 'Six clickable flows, with an index to jump straight to each one, using the original screens of the project.',
+        },
+        open: { pt: 'Abrir o protótipo em tela cheia ↗', en: 'Open the prototype full screen ↗' },
+      },
+    ],
+    links: {
+      behance: {
+        pt: 'https://www.behance.net/bozio',
+        en: 'https://www.behance.net/bozio',
+      },
+      secondary: { kind: 'proto', url: 'https://mellro-case.vercel.app/' },
+    },
+  },
+
   /* ---------------------------------------------------------------- 01 */
   {
     slug: 'agrobiz',

@@ -134,6 +134,37 @@ export default async function CasePage({
                 </section>
               );
             }
+            if (b.type === 'embed') {
+              return (
+                <section key={i} className="shell border-t border-line pt-16 sm:pt-24">
+                  <Reveal className="flex flex-col gap-6">
+                    <ContentBlock label={b.title[lang]} size="intro">
+                      {b.body[lang]}
+                    </ContentBlock>
+                    <figure
+                      className="overflow-hidden rounded-[var(--r-image)] border border-line bg-subtle"
+                      style={{ aspectRatio: String(b.ratio) }}
+                    >
+                      <iframe
+                        src={b.src}
+                        title={b.title[lang]}
+                        loading="lazy"
+                        className="h-full w-full border-0"
+                        allow="fullscreen"
+                      />
+                    </figure>
+                    <a
+                      href={b.src}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="ln t-label-button w-fit text-muted"
+                    >
+                      {b.open[lang]}
+                    </a>
+                  </Reveal>
+                </section>
+              );
+            }
             if (b.type === 'pair') {
               return (
                 <section key={i} className="shell">
