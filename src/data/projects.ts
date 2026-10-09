@@ -24,6 +24,7 @@ export type Project = {
 const img = (src: string, w: number, h: number): Block => ({ type: 'image', src, w, h });
 const pair = (a: string, b: string, ratio: number): Block => ({ type: 'pair', a, b, ratio });
 const slide = (n: string, h: number): Block => img(`/images/mellro-${n}.webp`, 1400, h);
+const bslide = (n: string, h: number): Block => img(`/images/bradesco-${n}.webp`, 1400, h);
 
 export const projects: Project[] = [
   /* ---------------------------------------------------------------- 00 */
@@ -153,6 +154,131 @@ export const projects: Project[] = [
         en: 'https://www.behance.net/bozio',
       },
       secondary: { kind: 'proto', url: 'https://mellro-case.vercel.app/' },
+    },
+  },
+
+  /* ---------------------------------------------------------------- 00b */
+  {
+    slug: 'atendebra',
+    title: 'Bradesco AtendeBra',
+    card: {
+      thumb: '/images/thumb-bradesco.webp',
+      tags: { pt: ['Banco', 'Ferramenta de atendimento', 'Web app'], en: ['Banking', 'Service tool', 'Web app'] },
+      blurb: {
+        pt: 'Ferramenta de atendimento do Bradesco. Desenhei a consulta de Pix, a contestação de uma transação e o cancelamento de cartão, sobre o design system Liquid.',
+        en: 'A customer-service tool for Bradesco. I designed Pix lookup, transaction disputes and card cancellation, built on the Liquid design system.',
+      },
+    },
+    subtitle: {
+      pt: 'Pix, contestação e cancelamento de cartão em três jornadas: a parte da ferramenta que o atendente usa com o cliente na linha.',
+      en: 'Pix, disputes and card cancellation in three journeys: the part of the tool that the agent uses with the customer on the line.',
+    },
+    meta: {
+      role: { pt: 'Product Designer: fluxos, telas e regras de uso', en: 'Product Designer: flows, screens and usage rules' },
+      scope: { pt: 'Mapa das jornadas, telas, estados, protótipo navegável', en: 'Journey maps, screens, states, clickable prototype' },
+      industry: { pt: 'Bancário', en: 'Banking' },
+      platform: { pt: 'Web desktop, 1280 e 1920 px', en: 'Desktop web, 1280 and 1920 px' },
+    },
+    story: {
+      about: {
+        pt: 'O AtendeBra é a ferramenta de atendimento do Bradesco, com o cliente sempre à vista para o atendente. O case cobre três jornadas: consultar o Pix, contestar uma transação e cancelar um cartão.',
+        en: 'AtendeBra is the Bradesco customer-service tool, with the customer always in view for the agent. This case covers three journeys: looking up Pix, disputing a transaction and cancelling a card.',
+      },
+      problem: {
+        pt: 'A sub home do Pix juntava chaves, limites e extrato, e achar uma transação pedia um recorte só com o extrato. No cartão, são dez motivos de cancelamento, cada um com uma consequência: nova via com custo e prazo, cancelamento sem reemissão, ou orientar o cliente à agência. E parte das regras ainda aguardava definição do negócio.',
+        en: 'The Pix home page gathered keys, limits and statement together, and finding a transaction called for a view with the statement alone. On cards, there are ten cancellation reasons, each with a different consequence: a new card with cost and delay, cancellation without reissue, or sending the customer to a branch. And some rules still awaited a business decision.',
+      },
+      solution: {
+        pt: 'Desenhei as telas das três jornadas, montadas com os componentes do Liquid, o design system do banco, e pensadas para as larguras do ambiente, com o painel lateral recolhido ou aberto. Montei também um protótipo navegável com todos os fluxos, para percorrer a ferramenta no navegador.',
+        en: 'I designed the screens of the three journeys, built with the components of Liquid, the bank’s design system, and designed for the widths of the environment, with the side panel collapsed or open. I also built a clickable prototype with every flow, to walk through the tool in the browser.',
+      },
+    },
+    cover: { src: '/images/bradesco-cover.webp', w: 1400, h: 1095 },
+    blocks: [
+      {
+        type: 'embed',
+        src: 'https://atendebra.vercel.app/',
+        ratio: 1400 / 900,
+        title: { pt: 'Protótipo navegável', en: 'Live prototype' },
+        body: {
+          pt: 'Antes da apresentação, explore a ferramenta: catorze telas ligadas por áreas clicáveis, quatro jornadas guiadas para começar e os dados são todos fictícios.',
+          en: 'Before the walkthrough, explore the tool: fourteen screens connected by clickable areas, four guided journeys to get started, and all data is fictitious.',
+        },
+        open: { pt: 'Abrir o protótipo em tela cheia ↗', en: 'Open the prototype full screen ↗' },
+      },
+      {
+        type: 'text',
+        label: { pt: 'Contexto', en: 'Context' },
+        body: {
+          pt: 'Uma ferramenta que fala pelo atendente: o cliente fica sempre à vista no topo, o menu do ambiente à esquerda, a jornada no centro e um painel lateral que abre e recolhe. O desafio era dar foco em meio a muita informação, e ações que não voltam atrás.',
+          en: 'A tool that speaks for the agent: the customer is always in view at the top, the environment menu on the left, the journey in the centre and a side panel that opens and collapses. The challenge was giving focus amid a lot of information, and actions that cannot be undone.',
+        },
+      },
+      bslide('04', 788),
+      bslide('06', 788),
+
+      {
+        type: 'text',
+        label: { pt: 'Consultar o Pix', en: 'Looking up Pix' },
+        body: {
+          pt: 'A sub home era uma tabela de chaves com atalhos no topo e nenhum bloco de limites. Passou a ser blocos: chaves resumidas, limites diurno, noturno e por transação com barra de uso, e o extrato recente. Contatos e extrato completos ficam a um clique, em telas próprias.',
+          en: 'The home page was a table of keys with shortcuts at the top and no limits block. It became blocks: summarised keys, daytime, night-time and per-transaction limits with a usage bar, and the recent statement. Full contacts and statement are one click away, on their own screens.',
+        },
+      },
+      bslide('07', 788),
+      bslide('11', 1070),
+      bslide('13', 788),
+
+      {
+        type: 'text',
+        label: { pt: 'Contestar uma transação', en: 'Disputing a transaction' },
+        body: {
+          pt: 'A contestação pode começar com a transação já identificada na conversa, ou depois de conferir os dados com o cliente. Mantive as duas portas: o menu da linha no extrato e o botão no fim do detalhe, que traz as duas pontas da transação, pagador e favorecido.',
+          en: 'A dispute can start with the transaction already identified in the conversation, or after checking the data with the customer. I kept both doors: the row menu in the statement and the button at the end of the detail, which shows both ends of the transaction, payer and payee.',
+        },
+      },
+      bslide('14', 900),
+      bslide('15', 1060),
+
+      {
+        type: 'text',
+        label: { pt: 'Cancelar um cartão', en: 'Cancelling a card' },
+        body: {
+          pt: 'Dez motivos em um único campo, escolhido antes de qualquer confirmação. O motivo decide o caminho: os seis primeiros seguem com reemissão e os quatro últimos cancelam sem nova via. A tela muda a partir dele.',
+          en: 'Ten reasons in a single field, chosen before any confirmation. The reason decides the path: the first six continue with reissue and the last four cancel without a new card. The screen changes from there.',
+        },
+      },
+      bslide('09', 788),
+      bslide('17', 880),
+
+      {
+        type: 'text',
+        label: { pt: 'Consequência e endereço', en: 'Consequence and address' },
+        body: {
+          pt: 'O atendente precisa repassar custo, prazo e regras na hora, enquanto fala com o cliente. Por isso a consequência vem logo depois do motivo, escrita para ser repassada. E, quando o endereço é de agência, ele fica travado e um popover explica o motivo no próprio campo.',
+          en: 'The agent has to relay cost, delay and rules on the spot, while talking to the customer. So the consequence comes right after the reason, written to be relayed. And when the address belongs to a branch, it is locked and a popover explains why in the field itself.',
+        },
+      },
+      bslide('18', 788),
+      bslide('19', 888),
+
+      {
+        type: 'text',
+        label: { pt: 'Decisões de design', en: 'Design decisions' },
+        body: {
+          pt: 'Tudo foi montado com os componentes do Liquid, sem criar padrões novos, para as telas parecerem parte do mesmo ambiente e chegarem ao desenvolvimento sem retrabalho. Nove decisões atravessam as três jornadas, até as larguras do ambiente, com o painel lateral em 80 e 400 px e em 1920 px.',
+          en: 'Everything was built with Liquid components, without creating new patterns, so the screens feel like part of the same environment and reach development without rework. Nine decisions run through the three journeys, down to the widths of the environment, with the side panel at 80 and 400 px and at 1920 px.',
+        },
+      },
+      bslide('05', 850),
+      bslide('20', 788),
+    ],
+    links: {
+      behance: {
+        pt: 'https://www.behance.net/bozio',
+        en: 'https://www.behance.net/bozio',
+      },
+      secondary: { kind: 'proto', url: 'https://atendebra.vercel.app/' },
     },
   },
 
